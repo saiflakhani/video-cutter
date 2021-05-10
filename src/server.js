@@ -2,6 +2,7 @@ const { app } = require("./app");
 const http = require('http').createServer(app);
 var https = null;
 var isHTTPS = true;
+var fs = require('fs');
 
 const $PORT = process.env.PORT || 5285;
 try{
