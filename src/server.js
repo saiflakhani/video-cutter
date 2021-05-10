@@ -21,6 +21,7 @@ try{
     console.log("HTTPS Keys do not exist. Proceeding with HTTP");
     io = require('socket.io')(http);
     isHTTPS = false;
+    console.log(error);
 }
 
 if(isHTTPS){
