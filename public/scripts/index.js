@@ -49,6 +49,7 @@ function uploadData(){
                 data: data,
                 success: function(response){
                     console.log("Success");
+                    alert("Success!");
                     window.location.href = "/";
                 },
                 error: function(response){
