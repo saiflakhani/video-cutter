@@ -80,4 +80,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+temp/edited/*
+temp/raw/*
+temp/uploaded/*
 # End of https://www.toptal.com/developers/gitignore/api/windows,node,linux

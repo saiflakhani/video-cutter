@@ -3,8 +3,8 @@ class Check {
         if(location.search.indexOf("?") !== 0 || !location.search) {
             return false;
         }
-    
-        errorMsg.innerText = "Parece que ocorreu uma falha ao cortar o vídeo, tente novamente!";
+        alert("Error cutting or uploading the video. Try again!");
+        errorMsg.innerText = "Error Cutting or Uploading the video. Try again!";
         return true;
     }
 

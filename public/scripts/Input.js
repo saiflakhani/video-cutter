@@ -3,6 +3,7 @@ class Input {
     $iTo;
     $iFile;
     $iSubmit = document.querySelector(".input-submit input");
+    $iUpload = document.querySelector("#btnUpload");
     constructor() {
         this.$iFrom = document.querySelector("#from");
         this.$iTo = document.querySelector("#to");
@@ -63,7 +64,7 @@ class Input {
             this.$iSubmit.removeAttribute('disabled');
         } else {
             this.$iSubmit.setAttribute('disabled', 'disabled');
-            errorMsg.innerText = 'O arquivo que você está tentando enviar é muito grande! O tamanho máximo aceitado é 100 MB';
+            errorMsg.innerText = 'File size exceeds 100 MB!';
         }
     
         let file = e.target.files[0];

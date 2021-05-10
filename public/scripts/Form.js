@@ -8,7 +8,8 @@ class Form {
         if (window.FileReader && window.File && window.FileList && window.Blob) {
             if (typeof iFile.files[0] !== "undefined") {
                 if (iFile.files[0].size > limitSize) {
-                    errorMsg.innerText = 'O arquivo que você está tentando enviar é muito grande! O tamanho máximo aceitado é 100 MB';
+                    alert("File size limit exceeded");
+                    errorMsg.innerText = 'Oh my god! It\'s so big!';
                     return false;
                 }
             } else {

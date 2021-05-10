@@ -42,6 +42,7 @@ html {
     background: var(--background-complement);
     display: flex;
     flex-direction: column;
+    
 }
 
 .video-cutter h1 {
@@ -74,20 +75,20 @@ form .button {
     color: var(--text-button);
 }
 
-form .input-block,
+.input-block,
 form .input-submit {
     display: flex;
     align-items: center;
 }
 
-form .input-block label {
+.input-block label {
     margin-right: 1.6rem;
     font-size: 1.8rem;
     font-style: italic;
     font-weight: 600;
 }
 
-form .input-block input {
+.input-block input {
     background-color: var(--input-background);
     font-size: 1.8rem;
     color: var(--input-text);
@@ -256,4 +257,39 @@ form .message {
         font-size: 80.5%;
         zoom: 1.2;
     }
+}
+.btn {
+  border: none;
+  border-radius: 5px;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #3c53c7;
+  box-shadow: 0 2px 8px -2px rgba(60,83,199,0.5);
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  justify-content: center;
+}
+.btn.ripple {
+  background-position: center;
+  transition: background 0.8s;
+}
+.btn.ripple:hover {
+  background: #354bb9 radial-gradient(circle, transparent 1%, #354bb9 1%) 50%/16000%;
+}
+.btn.ripple:disabled {
+    background: #ccc radial-gradient(circle, transparent 1%, #354bb9 1%) 50%/16000%;
+  }
+.btn.ripple:active {
+  background-color: #6375d2;
+  background-size: 100%;
+  transition: background 0s, transform 0.2s;
+  transform: translateY(1px);
+}
+
+.container {
+justify-content: center;
+display: flex;
+    align-items: center;
 }

@@ -18,6 +18,7 @@ class CutVideoController {
 
     async handle(request, response) {
         let { from, to } = request.body;
+        console.log("Request File", request.file)
         const { filename, path: input } = request.file;
         const { editedFolder, rawFolder } = request;
 
