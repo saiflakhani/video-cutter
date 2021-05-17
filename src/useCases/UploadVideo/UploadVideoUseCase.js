@@ -5,9 +5,11 @@ const { createTemporaryFolder } = require("../CreateTemporaryFolder");
 class UploadVideoUseCase {
     execute(path) {
         const filepath = resolve(createTemporaryFolder.path, 'edited', path);
-        const newPath = resolve(createTemporaryFolder.path, 'uploaded', path);
+        console.log("Filepath", filepath);
+        const newPath = resolve('/home/ubuntu', 'recordings', path);
         const fileExists = fs.existsSync(filepath);
         const THIRTY_SECONDS = 30 * 1000;
+        console.log("File exists", fileExists);
 
 
         if(fileExists) {

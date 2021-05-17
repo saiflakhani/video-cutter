@@ -17,12 +17,15 @@ class CutVideoController {
     }
 
     async handle(request, response) {
+        console.log("REQUEST BODY", request.body);
         let { from, to } = request.body;
         console.log("Request File", request.file)
         const { filename, path: input } = request.file;
         const { editedFolder, rawFolder } = request;
+        var prefix = request.body.company;
+        var case_id = request.body.case + filename.slice(-4);
 
-        const output = `truncated-${filename}`;
+        const output = `${case_id}`;
 
         from = this.toSeconds(from);
         to = this.toSeconds(to);
@@ -37,7 +40,14 @@ class CutVideoController {
         });
 
         if(truncated) {
-            return response.status(200).redirect(`/cut/${btoa(output)}`);
+            var return_str = `/cut/${btoa(output)}`
+            if (prefix != undefined){
+                return_str += `?prefix=`+prefix;
+            }
+            if (case_id != undefined){
+                return_str += `&case_id=`+case_id;
+            }
+            return response.status(200).redirect(return_str);
         }
 
         return response.status(500).redirect("/?truncated=false");

@@ -42,6 +42,11 @@ function uploadData(){
         var result = confirm("Are you sure you want to upload this video?");
         if(result){
             var filename = video.src.substring(video.src.lastIndexOf('/') + 1);
+            const params = new URL(location.href).searchParams;
+            const case_id = params.get('case_id');
+            if(case_id!=undefined){
+                filename = case_id;
+            }
             var data = {"filename" : filename}
             $.ajax({
                 type: "POST",
@@ -49,7 +54,7 @@ function uploadData(){
                 data: data,
                 success: function(response){
                     console.log("Success");
-                    alert("Success!");
+                    alert("Success! "+filename);
                     window.location.href = "/";
                 },
                 error: function(response){

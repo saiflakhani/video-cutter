@@ -1,11 +1,31 @@
 class Check {
     errorOnTruncate(errorMsg) {
-        if(location.search.indexOf("?") !== 0 || !location.search) {
-            return false;
+        const params = new URL(location.href).searchParams;
+        const truncated = params.get('truncated');
+        const uploaded = params.get('uploaded');
+        const prefix = params.get('prefix');
+        const case_id = params.get('case_id');
+        
+
+        if (truncated === false){
+            alert("Error cutting the video. Try again!");
+            return true;
         }
-        alert("Error cutting or uploading the video. Try again!");
-        errorMsg.innerText = "Error Cutting or Uploading the video. Try again!";
-        return true;
+
+        else if (uploaded === false){
+            alert("Error uploading the video. Try again!");
+            return true;
+        }
+
+        if(prefix!=undefined){
+            document.getElementById('company').value = prefix;
+            // $("#company").attr("disabled", true);
+        }
+        if(case_id!=undefined){
+            document.getElementById('case').value = case_id;
+            // $("#case").attr("disabled", true);
+        }
+        return false;
     }
 
     successfulOnTruncate(video) {
